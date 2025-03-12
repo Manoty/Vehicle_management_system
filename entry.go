@@ -47,10 +47,8 @@ func main(){
 	truck := Truck{Whip: Whip{Brand:"Jeep Wrangler", Colour: "Green", Age: "New", Speed: 200}, Body:"hard body"}
 
 
-	lorry.Drive()
-	sedan.Drive()
-	offroader.Drive()
-	truck.Drive()	
+	//add slices to store vehicles
+	vehicles := []Vehicle{lorry, sedan, offroader, truck}
 }
 
 
