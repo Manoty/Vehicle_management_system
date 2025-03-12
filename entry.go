@@ -1,10 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 // Define a Vehicle interface
 type Vehicle interface{
-	Drive()
+	Drive() error
 
 }
 //define common structs
@@ -15,8 +18,15 @@ type Whip struct{
 	Speed int
 }
 //method for the motor (base behaviour)
-func (w Whip)Drive(){
-	fmt.Println("A", w.Colour, w.Brand , "that looks", w.Age, "just passed at a freaking speed of",w.Speed, "mph")
+func (w Whip)Drive() error{
+	if w.Speed <= 0{
+		return errors.New("The vehicle is not moving")
+	}
+	if w.Brand == "" || w.Colour == "" || w.Age == "" || w.Speed == 0{
+		return errors.New("The vehicle is not complete")
+	}
+			fmt.Println("A", w.Colour, w.Brand , "that looks", w.Age, "just passed at a freaking speed of",w.Speed, "mph")
+			return nil
 
 
 }
