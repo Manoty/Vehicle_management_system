@@ -49,6 +49,11 @@ func main(){
 
 	//add slices to store vehicles
 	vehicles := []Vehicle{lorry, sedan, offroader, truck}
+
+	//iterate over the slice and call the Drive method
+	for _, vehicle := range vehicles{
+		vehicle.Drive()
+	}
 }
 
 
